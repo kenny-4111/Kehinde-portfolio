@@ -1,5 +1,8 @@
 import { prisma } from "@/lib/prisma";
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 export default async function DashboardPage() {
   const visitors = await prisma.visitor.findMany({
     orderBy: { visitedAt: "desc" },
