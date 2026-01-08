@@ -20,6 +20,7 @@ export default function Hero() {
           alt="Kehinde"
           width={160}
           height={160}
+          loading="eager"
           className="object-cover w-full h-full"
         />
       </motion.div>
