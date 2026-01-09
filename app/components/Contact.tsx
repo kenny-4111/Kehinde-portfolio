@@ -21,23 +21,6 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      const formData = new FormData(e.currentTarget);
-      const name = formData.get("user_name") as string;
-      const email = formData.get("user_email") as string;
-      const message = formData.get("message") as string;
-
-      // Save to database
-      const dbResponse = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
-      });
-
-      if (!dbResponse.ok) {
-        const errorData = await dbResponse.json();
-        throw new Error(errorData.error || "Failed to save to database");
-      }
-
       // Send email via EmailJS
       if (formRef.current) {
         await emailjs.sendForm(
